@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="./services.json"></script>
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" type="image/png"
+    href="https://res.cloudinary.com/daxmjqsy2/image/upload/v1679395171/logo_q8a29a.png" />
+  <title>Shoekart || React</title>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script>
+    window.addEventListener('load', () => {
+      registerSW();
+    });
+    // Register the Service Worker
+    async function registerSW() {
+      if ('serviceWorker' in navigator) {
+        try {
+          await navigator
+            .serviceWorker
+            .register('serviceworker.js');
+        }
+        catch (e) {
+          console.log('SW registration failed');
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
