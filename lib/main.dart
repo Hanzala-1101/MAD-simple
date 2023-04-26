@@ -25,25 +25,12 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("Image Gallery")),
+        appBar: AppBar(title: const Text("Dome app")),
         body: Center(
-            child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const Second_Page()));
-          },
-          child: Text("second page"),
-        )));
-  }
-}
-
-class Second_Page extends StatelessWidget {
-  const Second_Page({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(title: const Text("Image Gallery")),
-        body: Center(child: Text("this is second page")));
+          child: Text(
+            "Hello world",
+            style: TextStyle(fontSize: 52, color: Colors.greenAccent),
+          ),
+        ));
   }
 }
