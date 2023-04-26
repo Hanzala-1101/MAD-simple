@@ -22,7 +22,8 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
-
+  final url =
+      'https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMzcxODl8MXwxfHNlYXJjaHwxfHxtb3VudGFpbnxlbnwwfHx8fDE2ODI1MTUyMjY&ixlib=rb-4.0.3&q=80&w=400';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,9 +39,7 @@ class MyHomePage extends StatelessWidget {
             )
           ]),
           Column(children: [
-            Image.network(
-                'https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMzcxODl8MXwxfHNlYXJjaHwxfHxtb3VudGFpbnxlbnwwfHx8fDE2ODI1MTUyMjY&ixlib=rb-4.0.3&q=80&w=400',
-                fit: BoxFit.cover),
+            Image.network(url, fit: BoxFit.cover),
             const Text(
               "Image from url",
               style: TextStyle(fontSize: 32),
@@ -48,6 +47,73 @@ class MyHomePage extends StatelessWidget {
           ])
         ],
       )),
+      drawer: Drawers(),
+    );
+  }
+}
+
+class Drawers extends StatelessWidget {
+  const Drawers({super.key});
+  final url =
+      'https://images.unsplash.com/photo-1604537529428-15bcbeecfe4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzMzcxODl8MXwxfHNlYXJjaHwxfHxtb3VudGFpbnxlbnwwfHx8fDE2ODI1MTUyMjY&ixlib=rb-4.0.3&q=80&w=400';
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: [
+          DrawerHeader(
+            padding: EdgeInsets.zero,
+            child: UserAccountsDrawerHeader(
+              margin: EdgeInsets.zero,
+              accountName: Text("Account Name"),
+              accountEmail: Text("person@gmail.com"),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: NetworkImage(url),
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.home,
+              color: Colors.black,
+            ),
+            title: Text(
+              "Home",
+              textScaleFactor: 1.2,
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.person_off,
+              color: Colors.black,
+            ),
+            title: Text(
+              "Profile",
+              textScaleFactor: 1.2,
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.mail,
+              color: Colors.black,
+            ),
+            title: Text(
+              "Email me",
+              textScaleFactor: 1.2,
+              style: TextStyle(
+                color: Colors.black,
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
